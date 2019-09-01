@@ -27,3 +27,20 @@ To reduce customer churn, telecom companies need to predict which customers are 
 
 **Objective**: Analyse customer-level data of a leading telecom firm, build predictive models to identify customers at high risk of churn and identify the main indicators of churn.
 Here we will use the usage-based definition to define churn.
+
+**5) Syntactic Analysis [POS Tagging for unknown words]**: The vanilla Viterbi algorithm when encountered an unknown word (i.e. not present in the training set, such as 'Twitter'), it assigned an incorrect tag arbitrarily. This is because, for unknown words, the emission probabilities for all candidate tags are 0, so the algorithm arbitrarily chooses (the first) tag.
+Here we use the Penn Treebank dataset of NLTK with the 'universal' tagset
+
+**Objective**: Solving the problem of unknown words using 2 modifications: 
+- Using weighted transition probabilities 
+- Using rule based tagging
+
+**6) Chatbot**: An Indian startup named 'Foodie' wants to build a conversational bot (chatbot) which can help users discover restaurants across several Indian cities(Tier 1 and 2) 
+
+**Objective**: The bot should take city, cuisine and budget as input and  should display the top 5 restaurants in a sorted order (descending) of the average Zomato user rating. It should also send an optional mail to the user
+Below are the files and its usage:
+1) nlu_model.py - Part of rasa nlu for understanding user messages and extracting useful information from the text. Load the data, train it using spacy_sklearn pipeline and finally save the model in models/nlu
+2) train_init.py - Part of rasa core. Uses the Memoization and Keras policies to train the model using the stories
+3) dialogue_management_model.py - Part of rasa core whihc holds the conversations and decides the next step
+4) rasa-nlu-trainer can be used to create data with entities and intents online
+5) train_online.py - Used to train the model online to tell the bot what the next action should be and create stories
