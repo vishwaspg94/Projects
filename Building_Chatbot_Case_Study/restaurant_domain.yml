@@ -1,0 +1,154 @@
+slots:
+  location:
+    type: text
+  location_id:
+    type: text
+  cuisine:
+    type: text
+  budget:
+    type: text
+  mail_id:
+    type: text
+  mail_text:
+    type: text
+    
+entities:
+ - location
+ - location_id
+ - cuisine
+ - budget
+ - mail_id
+ - mail_text
+
+intents: 
+ - greet
+ - out_of_scope
+ - insult
+ - check_location
+ - check_cuisine
+ - check_budget
+ - restaurant_search
+ - affirm
+ - deny
+ - send_mail
+ - goodbye
+ - thankyou
+
+templates:
+  utter_cannot_help:
+    - "I'm afraid I can't help with that. But, I can help you with restaurant search."
+    - "Sorry, I can help you with only restaurant searches."
+    - "If you want to search restaurants then I am your go to guy."
+  utter_respond_insult:
+    - "That's not very nice."
+    - "You hurt my feelings."
+    - "You are offending me."
+  utter_default:
+    - "Welcome to Foodie. Your search for restaurants ends here."
+  utter_greet:
+    - "Hey there! How may I help you."
+    - "Hi, How can I help you!"
+    - "Hey, How is it going. How can I help you today."
+  utter_goodbye:
+    - "Goodbye :("
+    - "Bye-bye."
+    - "See you again soon."
+  utter_thankyou:
+    - "You are welcome."
+    - "Welcome."
+    - "Always a pleasure."
+  utter_ask_location:
+    - "What location would you prefer?"
+    - "Can you please give me the location?"
+    - "Which location would you want me to search for?"
+  utter_not_a_valid_location:
+    - "Sorry, this is not a valid location. Can you please tell again?"
+    - "Sorry, I am unable to find any such location. Please provide it again?"
+    - "Sorry, didn’t find any such location. Can you please repeat it?"
+  utter_no_service_location:
+    - "Sorry, we are not yet operational at this location. Can you please specify some other location?"
+    - "Sorry, we do not serve at this location. Till then can you give some other nearby location?"
+    - "Sorry, we are working hard on serving at this location very soon. Please provide some other location."
+  utter_ask_cuisine: 
+    - text: "What kind of cuisine would you like?"
+      buttons:
+      - title: "Chinese"
+        payload: "chinese"
+      - title: "Mexican"
+        payload: "mexican"
+      - title: "Italian"
+        payload: "italian"
+      - title: "American"
+        payload: "american"
+      - title: "South Indian"
+        payload: "south indian"
+      - title: "North Indian"
+        payload: "north indian"
+  utter_not_a_valid_cuisine:  
+    - "We do not serve this cuisine. Would you like some other cuisine that we serve?"
+    - "Please select one of the cuisines being served by us."
+    - "We will look into serving this cuisine pretty soon. Till then please select one from above cuisines."
+  utter_ask_budget: 
+    - text: "What's the average budget for two people?"
+      buttons:
+      - title: "Less than Rs. 300"
+        payload: "<300"
+      - title: "Between Rs. 300 to 700"
+        payload: "300-700"
+      - title: "More than Rs. 700"
+        payload: ">700"  
+  utter_not_a_valid_budget:  
+    - "I am not able to decipher the price range. Can you please repeat it again?"
+    - "Please provide a valid amount."
+    - "I did not get prices. Can you please repeat?"
+  utter_ask_for_sending_mail:
+    - "Do you want the details over mail?"
+    - "Would you like me to send the details over mail?"
+    - "If you want I can mail you the details. Would you like me to mail them?"
+  utter_ask_for_mail_id:
+    - "To which e-mail id should I send it to?"
+    - "Can you please provide me with your mail id."
+    - "Your e-mail id please."
+  utter_not_a_valid_mail_id:
+    - "Please provide a valid mail id."
+  utter_ask_howcanhelp:
+    - "How can I help you?"
+  utter_something_went_wrong:
+    - "Sorry, it seems we are having some technical issues."
+    - "Oops, it seems the network is down now."
+    - "There seems to be some connectivity issues. We are working on it rightaway."
+  utter_mail_sent:
+    - "Thank you. The mail has been sent to your mail box."
+    - "Done, the mail has been sent."
+    - "Mail sent. Bon Appetit!"
+  utter_need_anything_else:
+    - "Is there anything else I could help you with?"
+  utter_restart:
+    - "Welcome to Foodie. Your search for restaurants ends here."
+actions:
+ - utter_greet
+ - utter_goodbye
+ - utter_default
+ - utter_restart
+ - utter_respond_insult
+ - utter_cannot_help
+ - utter_ask_howcanhelp
+ - utter_ask_location
+ - utter_not_a_valid_location
+ - utter_ask_cuisine
+ - utter_not_a_valid_cuisine
+ - utter_ask_budget
+ - utter_not_a_valid_budget
+ - utter_ask_for_sending_mail
+ - utter_ask_for_mail_id
+ - utter_not_a_valid_mail_id
+ - utter_something_went_wrong
+ - utter_mail_sent
+ - utter_need_anything_else
+ - utter_thankyou
+ - actions.ActionCheckLocation
+ - actions.ActionCheckCuisine
+ - actions.ActionCheckBudget
+ - actions.ActionSearchRestaurants
+ - actions.ActionSendMail
+ - actions.ActionGoodBye
